@@ -4,6 +4,6 @@ const compute= arr => {
   }
   positives=arr.filter(num=>num>0);
   negatives=arr.filter(num => num<0)
-  return[positives.length,negatives.sum()]
+  return[positives.length,negatives.reduce((a,b)=>a+b,0)]
 }
 console.log(compute([1,6,2,-7,-2,0,2]))
