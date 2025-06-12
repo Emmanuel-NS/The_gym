@@ -1,0 +1,95 @@
+*{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.container header{
+  background-color: aqua;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.layout{
+  position: relative;
+  top: 50px;
+  display: flex;
+  height: 90vh;
+}
+.layout .sidebar{
+  background-color: bisque;
+  display: flex;
+  width: 200px;
+}
+.layout .main{
+  background-color: cadetblue;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.layout h1{
+  background-color: rgb(221, 170, 102);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.layout .cards{
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
+  flex: 1;
+  gap:10px;
+  flex-wrap: wrap;
+}
+.cards .card{
+  background-color: cornsilk;
+  height: 100px;
+  margin: 20px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 100px;
+}
+
+.sidebar nav{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  width: 100%;
+  margin: 5px;
+}
+.sidebar nav a{
+  background-color: aliceblue;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 550;
+}
+.container footer{
+  background-color: aquamarine;
+  height: 50px;
+  position: fixed;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+}
