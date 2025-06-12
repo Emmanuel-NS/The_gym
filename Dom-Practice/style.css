@@ -1,0 +1,38 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+}
+.container{
+  background-color: white;
+  padding: 20px;
+  box-shadow: 5px 5px lightgray;
+  width: 500px;
+}
+.container input, button{
+  width: 100%;
+  margin: 5px;
+  height: 30px;
+}
+.container ul{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.container ul li{
+  background-color: gray;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+  list-style: none;
+ 
+}
+.complited{
+  color: grey;
+  text-decoration: line-through;
+}

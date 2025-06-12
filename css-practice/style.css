@@ -1,4 +1,4 @@
-*{
+/* *{
   border: 0px;
   padding: 0px;
   margin: 0px;
@@ -43,7 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
+ 
 }
 .layout .cards{
   display: flex;
@@ -92,4 +92,141 @@
   align-items: center;
   width: 100%;
   bottom: 0;
+} */
+/* ======================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "layout"
+    "footer";
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-columns:1fr;
+  height: 100vh;
+}
+
+/* Header */
+.container header {
+  grid-area: header;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Footer */
+.container footer {
+  grid-area: footer;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  position: sticky;
+  bottom: 0;
+}
+.layout {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 200px 1fr;
+  height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-area: sidebar;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* Sidebar nav links */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.sidebar nav a {
+  background-color: aliceblue;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 550;
+}
+
+/* Main content */
+.main {
+  grid-area: main;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main title */
+.main h1 {
+  background-color: rgb(221, 170, 102);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cards section */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
+  background-color: antiquewhite;
+  flex: 1;
+}
+
+.card {
+  background-color: cornsilk;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  border-radius: 8px;
+}
+.card {
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.card {
+  animation: slideIn 5s ease-out;
+}
+.card:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
