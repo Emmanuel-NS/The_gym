@@ -1,0 +1,39 @@
+*{
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container{
+  background-color:rgb(233, 230, 220);
+  min-width: 300px;
+  height: 300px;
+  position: relative;
+  top : 70px;
+  left: 35px;
+  border-radius: 10px;
+  box-shadow: 5px 7px rgb(138, 128, 128);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.drum{
+ background-color: aquamarine;
+ min-height: 150px;
+ min-width: 150px;
+ border-radius: 25px;
+ box-shadow: 5px 5px white;
+}
+.drum:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.sound{
+  visibility: hidden;
+}
+.clicked{
+  transition: 0.5s ease-in-out;
+  transform: scale(1.05);
+}
