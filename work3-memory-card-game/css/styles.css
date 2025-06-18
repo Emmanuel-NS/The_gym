@@ -1,0 +1,83 @@
+.container{
+  background-color: rgb(230, 229, 228);
+  margin: 20Px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 2px 2px;
+}
+.container h1{
+  font-family: 700;
+  background-color: chartreuse;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 3px  rgb(48, 70, 27) ;
+  color: white;
+  margin: 0;
+}
+.score{
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.score p{
+  color: white;
+  font-family: 700;
+  font-size: 18px;
+  background-color: rgb(63, 59, 45);
+  height: 30px;
+  width: 70px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game-board{
+  background-color:aquamarine;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 2px 2px white;
+}
+.card{
+  display: inline-block;
+  min-height: 200px;
+  min-width: 150px;
+  background-image: url('../images/back.PNG');
+  background-repeat:round;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 3px gray;
+}
+.card:hover{
+  transform: scale(1.1);
+
+}
+.start-game{
+  position: sticky;
+  bottom: 0;
+  height: 50px;
+  width: 150px;
+  background-color: chartreuse;
+  border: 0;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px;
+  color: white;
+  font-family: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+.start-game:hover{
+  transform: scaleX(1.05);
+}

@@ -16,8 +16,8 @@ document.addEventListener('keypress',(e)=>{
       drum.style.backgroundColor=`${keys[k].color}`
       drum.style.transform=`${keys[k].scale}`
       drum.innerHTML=`
-      <div class='sound'>
-      <audio controls autoplay>
+      <div class=''>
+      <audio  autoplay>
           <source src=${keys[k].sound} type="audio/mpeg">
       </audio>
       </div>`    
