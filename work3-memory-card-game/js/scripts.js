@@ -16,23 +16,30 @@ function pickRandomImage(){
   card= imagelist[n]
   if(card.count < 2){
     card.count++
-    picked_images.push(card)
     return card
 }
 }
+function flipCard(card){
+    done=false
+    card.classList.forEach(val=>{
+      if (val==='done'){
+        done=true;
+      }
+    })
+    if(!done){
+    picked=pickRandomImage()
+    image=picked.image
+    card.style.backgroundImage= `url('${image}')`
+    card.classList.add('done')
+    }
+    console.log(card.classList)
+  }
 assignedCards=[]
 foundCards=[]
 picked_images=[]
 Array_cards=Array.from(cards)
 Array_cards.forEach(card => {
   card.addEventListener('click',()=>{
-    dones = document.getElementsByClassName('done')
-    if (card in dones){
-      return 
-    }
-    picked=pickRandomImage()
-    image=picked.image
-    card.style.backgroundImage= `url('${image}')`
-    card.classList.add('done')
-  })
+    flipCard(card)
+})
 });
