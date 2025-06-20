@@ -11,8 +11,8 @@ imagelist = [
   {'image':'images/joker.PNG','count':0}
 ];
 
-let lastFlipped = null;
-let lastImage = null;
+let firstFlipped = null;
+let firstImage = null;
 let lock = false;
 let moves = 0;
 let score = 0;
@@ -40,7 +40,7 @@ function pickRandomImage() {
 }
 
 function flipCard(card) {
-  if (lock || card.classList.contains('done') || card === lastFlipped) return;
+  if (lock || card.classList.contains('done') || card === firstFlipped) return;
 
   let picked = pickRandomImage();
   if (!picked) return;
@@ -49,34 +49,31 @@ function flipCard(card) {
   card.classList.add('done');
   card.dataset.image = image; 
 
-  if (lastFlipped) {
+  if (firstFlipped) {
     lock = true;
     updateMoves();
-    // Compare images
-    if (lastImage === image) {
-      // Match: keep both flipped
+    if (firstImage === image) {
       updateScore();
-      lastFlipped = null;
-      lastImage = null;
+      firstFlipped = null;
+      firstImage = null;
       lock = false;
     } else {
-      // Not match: flip both back after delay
       setTimeout(() => {
         picked.count--;
-        let prevImgObj = imagelist.find(img => img.image === lastImage);
+        let prevImgObj = imagelist.find(img => img.image === firstImage);
         if (prevImgObj) prevImgObj.count--;
         card.classList.remove('done');
         card.style.backgroundImage = "url('images/back.PNG')";
-        lastFlipped.classList.remove('done');
-        lastFlipped.style.backgroundImage = "url('images/back.PNG')";
-        lastFlipped = null;
-        lastImage = null;
+        firstFlipped.classList.remove('done');
+        firstFlipped.style.backgroundImage = "url('images/back.PNG')";
+        firstFlipped = null;
+        firstImage = null;
         lock = false;
       }, 1000);
     }
   } else {
-    lastFlipped = card;
-    lastImage = image;
+    firstFlipped = card;
+    firstImage = image;
   }
 }
 
@@ -86,7 +83,6 @@ Array.from(cards).forEach(card => {
   });
 });
 
-// Reload the page when start button is clicked
 start_btn.addEventListener('click', function() {
   window.location.reload();
 });
