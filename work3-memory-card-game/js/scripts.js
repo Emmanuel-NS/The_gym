@@ -27,6 +27,7 @@ function updateMoves() {
 
 function updateScore() {
   score++;
+  new Audio('sounds/success.mp3').play();
   scoreValue.textContent = score;
 }
 
@@ -69,9 +70,11 @@ function flipCard(card) {
         firstFlipped = null;
         firstImage = null;
         lock = false;
+        new Audio('sounds/wrong.mp3').play();
       }, 1000);
     }
   } else {
+    new Audio('sounds/flip.mp3').play();
     firstFlipped = card;
     firstImage = image;
   }
@@ -80,9 +83,19 @@ function flipCard(card) {
 Array.from(cards).forEach(card => {
   card.addEventListener('click', () => {
     flipCard(card);
+    if (score === 8) {
+      setTimeout(() => {
+        alert('Congratulations! You won the game!');
+        new Audio('sounds/winning.mp3').play(); 
+      }, 500);
+    }
   });
 });
 
 start_btn.addEventListener('click', function() {
-  window.location.reload();
+  new Audio('sounds/start.mp3').play()
+  setTimeout(()=> {
+    window.location.reload();
+  }, 2000);
+  
 });
