@@ -19,6 +19,36 @@ let score = 0;
 
 const movesValue = document.getElementById('moves-value');
 const scoreValue = document.getElementById('score-value');
+let sec=0
+let mins=3
+minutes=document.getElementById('min')
+seconds=document.getElementById('sec')
+
+setInterval(()=>{
+sec<10? seconds.innerText=`0${sec} `: seconds.innerText=`${sec} `;
+minutes.innerText=`0${mins} : `
+if(sec===0){
+  sec=59;
+  mins--;
+}
+else{
+  sec--;
+}
+if(mins===0 && sec<=30){
+  seconds.style.color='red'
+  minutes.style.color='red'
+}
+if(mins===0 && sec===0){
+  clearInterval(x);
+  lock=true;
+  alert('opps you loose the game!')
+  new Audio('sounds/lose.mp3').play()
+  setTimeout(()=> {
+    window.location.reload();
+  }, 2000);
+}
+},1000)
+
 
 function updateMoves() {
   moves++;
@@ -41,14 +71,14 @@ function pickRandomImage() {
 }
 
 function flipCard(card) {
-  if (lock || card.classList.contains('done') || card === firstFlipped) return;
+  if (lock || card.classList.contains('done')) return;
 
   let picked = pickRandomImage();
   if (!picked) return;
   let image = picked.image;
   card.style.backgroundImage = `url('${image}')`;
   card.classList.add('done');
-  card.dataset.image = image; 
+ 
 
   if (firstFlipped) {
     lock = true;
@@ -92,7 +122,7 @@ Array.from(cards).forEach(card => {
   });
 });
 
-start_btn.addEventListener('click', function() {
+start_btn.addEventListener('click',()=> {
   new Audio('sounds/start.mp3').play()
   setTimeout(()=> {
     window.location.reload();
